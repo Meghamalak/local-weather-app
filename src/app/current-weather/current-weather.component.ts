@@ -16,9 +16,21 @@ export class CurrentWeatherComponent implements OnInit
 
   }
 
+  // constructor()
+  // {
+  //   this.current = {
+  //     city: 'Redmond',
+  //     country: 'US',
+  //     description: 'Sunny',
+  //     image: '',
+  //     temperature: 78,
+  //     date: new Date(),
+  //   }
+  // }
+
   ngOnInit(): void
   {
-    this.weatherService.getCurrentWeather('Texas', 'US').subscribe(data => this.current = data)
+    this.weatherService.getCurrentWeather('Texas', 'US').subscribe((data) => (this.current = data));
   }
 
 }

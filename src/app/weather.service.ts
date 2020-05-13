@@ -42,18 +42,18 @@ export class WeatherService {
     ).pipe(map(data => this.transformToICurrentWeather(data)))
   }
 
-  transformToICurrentWeather(data: ICurrentWeatherData) : ICurrentWeather
-  {
-    return
-    {
-      city: data.name;
-      country: data.sys.country;
-      date: new Date (data.dt * 1000);
-      image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-      temperature: this.convertKelvinToFahrenheit(data.main.temp);
-      description: data.weather[0].description;
+
+  transformToICurrentWeather(data: ICurrentWeatherData) : ICurrentWeather{
+    return {
+      city: data.name,
+      country: data.sys.country,
+      date: new Date(data.dt * 1000),
+      image: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+      temperature: this.convertKelvinToFahrenheit(data.main.temp),
+      description: data.weather[0].description
     }
   }
+
 
   convertKelvinToFahrenheit(kelvin: number): number
   {
